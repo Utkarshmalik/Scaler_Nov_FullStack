@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        p.my-class{
+            color: palevioletred;
+        }
+
+        p{
+            color: bisque;
+        }
+
+        #my-id{
+            color: red;
+        }
+
+        .parent{
+            color: blue;
+        }
+        
+        p#my-id{
+            color: brown;
+        }
+
+        .my-class#my-id{
+            color: forestgreen;
+        }
+
+        p.my-class.another-class.another-class2{
+            color: yellow;
+        }
+
+        *{
+            color: aqua !important;
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+
+    <div class="parent">
+
+        <p style="color: brown;" class="my-class another-class another-class2" id="my-id">
+            This is a paragraph
+        </p>
+
+    </div>
+    
+    
+</body>
+</html>
