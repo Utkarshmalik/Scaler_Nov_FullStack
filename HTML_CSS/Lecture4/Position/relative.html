@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        :root {
+            --red: #E74C36;
+            --blue: #2980B9;
+            --green: #27AE60;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+        }
+
+        .red {
+            background-color: var(--red);
+        }
+
+        .blue {
+            background-color: var(--blue);
+            position: relative;
+            left: 100px;
+            top:10px;
+        }
+
+        .green {
+            background-color: var(--green);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="red"></div>
+    <div class="blue"></div>
+    <div class="green"></div>
+
+</body>
+
+</html>
+
+
+<!-- 
+With relative positioning, the elements are positioned along with the natural flow of the document. But unlike static
+elements, the position of the relative elements can be modified using left, right, top, bottom, and z-index properties. -->
+
+
+
+<!-- orginal pos -> top left corner of the elem -->
+<!-- # Relative 
+* Browser treats the element is if it still occupies it's original pos
+* Without top, bottom, left, right : element stays at org pos
+    * top : pushes element down from it's original pos
+    * left : pushed element right from it's original pos
+    * right : pushes element left from it's original pos
+    * bottom : pushes element up from it's original pos -->

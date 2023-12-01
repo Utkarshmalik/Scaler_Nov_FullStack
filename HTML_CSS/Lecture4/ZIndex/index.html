@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        :root {
+            --red: #E74C36;
+            --blue: #2980B9;
+            --green: #27AE60;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+
+        .red {
+            background-color: var(--red);
+            z-index: 1;
+        }
+
+        .blue {
+            background-color: var(--blue);
+            z-index: 1;
+
+        }
+
+        .green {
+            background-color: var(--green);
+            z-index: 2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="red"></div>
+    <div class="blue"></div>
+    <div class="green"></div>
+
+</body>
+
+</html>
+<!-- 
+The z-index property is used to control the stacking order of positioned elements along the z-axis, which determines
+which element appears on top of others when they overlap.
+
+The default value of z-index is auto, which works in a similar manner to the cascading order of elements in the
+document.
+
+Elements with a higher z-index value will appear on top of elements with lower values.Stacking Order: The order in which elements are positioned on the z-axis is known as stacking order.
+
+
+Stacking Order: The order in which elements are positioned on the z-axis is known as stacking order. 
+
+If multiple elements have the same z-index, the one that appears later in the HTML structure will be on top.
+
+Increasing the z-index value increases an element's priority in the stacking order.
+
+-->

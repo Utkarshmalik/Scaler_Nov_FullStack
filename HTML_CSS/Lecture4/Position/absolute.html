@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+             * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+         .box {
+            width: 10rem;
+            height: 10rem;
+            margin-bottom: 1rem;
+            border: dashed;
+        }
+
+             .box-1 {
+            background-color: lightblue;
+        }
+
+              .box-2 {
+            background-color: lightcoral;
+        }
+
+              .box-3 {
+            background-color: lightgreen;
+            position: absolute;
+            top:5rem;
+            left:5rem;
+        }
+
+
+              .box-4 {
+            background-color: lightsalmon;
+            position: absolute;
+            bottom: 10px;
+            right: 1px;
+        }
+
+        .parent{
+             margin-left: 1rem;
+            background-color: rgb(146, 85, 202);
+            width: 90vw;
+            position: relative;
+        }
+
+      
+    </style>
+</head>
+
+<body>
+    <h2>Position - Absolute </h2>
+    
+    <div class="parent">
+        <div class="box box-1">1</div>
+        <div class="box box-2">2</div>
+        <div class="box box-3">3</div>
+        <div class="box box-4">4</div>
+    
+    </div>
+</body>
+
+</html>
+
+
+
+<!-- # Absolute
+* Browser removes it from the current flow and next element to it will take it's place
+* top, left, right, bottom
+* Default
+* top and left -> top left corner
+* bottom -> bottom part of the page
+* right -> right part of the page -->
+
+
+<!-- The absolute elements are positioned relative to the closest ancestor with any position property other than static.
+     If
+the closest ancestor has a static position, the element is positioned relative to the next parent element without the
+static position property. -->

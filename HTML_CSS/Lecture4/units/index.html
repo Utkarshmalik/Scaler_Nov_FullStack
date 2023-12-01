@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .px,.em,.rem,.vh-vw{
+            margin-bottom: 20px;
+            background-color: lightgreen;
+        }
+
+
+        html{
+            font-size: 10.5px;
+        }
+
+
+        .px{
+            font-size: 20px;
+        }
+
+        .pa{
+            /* font-size: 12px; */
+        }
+
+        .em{
+            /* 1 em = 12px */
+            font-size: 2em;
+        }
+
+        .rem{
+            height: 10rem;
+            width: 10rem;
+        }
+
+    /* viewport height ->borwser window height */
+        .vh-vw{
+            /* 20% of browser screen height  */
+            height: 20vh;
+            /* 50% of browser screen width */
+            width:50vw;
+
+
+            font-size: 2rem;
+        }
+
+
+    /* percentage -> it's value depend upon parent */
+
+        .gp{
+            height: 200px;
+            width: 200px;
+            background-color: bisque;
+        }
+
+        .parent{
+            height: 50%;
+            width: 50%;
+            background-color: lightcoral;
+        }
+
+        .child{
+            background-color: lightblue;
+            height: 50%;
+            width: 50%;
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+    <div class="px"> Pixes unit </div>
+
+    
+    <div class="rem"> REM unit </div>
+
+    <div class="pa">
+        <div class="em">
+            I am em 
+        </div>
+    </div>
+
+    <div class="vh-vw"> VH-VW unit </div>
+
+
+    <div class="gp">
+        <div class="parent">
+            <div class="child">
+                percentage 
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
