@@ -1,0 +1,58 @@
+
+/* @media  | only mediatype and (expression) {
+    // Code content
+} */
+
+/* Media Types */
+
+/* all  : It is used for all media devices
+print : It is used for printer
+screen : It is used for computer screens,smartphones,etc.
+speech : It is used for screen readers that read the screen aloud.
+*/
+
+@media only screen and (max-width:900px) {
+
+    body {
+        background-color: fuchsia;
+    }
+
+}
+
+
+
+/* 1400px to 2000px */
+
+
+@media only screen and (max-width:2000px) {
+
+    body {
+        background-color: lightpink;
+    }
+
+}
+
+
+/* 1100px to 1400px */
+
+@media only screen and (max-width:1400px) {
+
+    body{
+        background-color: lightblue;
+    }
+
+}
+
+
+/* 900px to 1100px */
+@media only screen and (max-width:1100px) {
+
+    body {
+        background-color: lightgreen;
+    }
+
+}
+
+
+
+
