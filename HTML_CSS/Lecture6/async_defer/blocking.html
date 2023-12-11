@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- js -> parsed and executed -->
+
+<body>
+    <script defer src="external.js"></script>
+    <h1>Hi How are You</h1>
+    <h2>Hi How are You</h2>
+    <h3>Hi How are You</h3>
+    <h4>Hi How are You</h4>
+    <h5>Hi How are You</h5>
+</body>
+
+</html>
+
+
+
+<!-- 
+async and defer are attributes used with the
+<script> element in HTML to control how a script is executed.
+
+async:
+When you add the async attribute to a < script > tag, it means that the script will be executed asynchronously as soon as it is available, without blocking the HTML parsing.
+The HTML parsing and rendering will continue, and the script will be executed whenever it's downloaded, without waiting for other scripts or resources.
+    
+
+Example:
+
+    html
+Copy code
+        < script async src = "example.js" ></script>
+defer:
+
+When you add the defer attribute to a
+<script> tag, it means that the script will be executed in order, after the HTML has been fully parsed.
+Multiple scripts with the defer attribute will be executed in the order they appear in the document.
+The HTML parsing doesn't wait for the script to be downloaded and will continue.
+    Example:
+
+    html
+Copy code
+        < script defer src = "example.js" ></script>
+Comparison:
+
+Both async and defer are used to improve the loading and execution of scripts, especially for large or complex web
+pages.
+The key difference is in when the script is executed:
+With async, the script is executed as soon as it's available, potentially out of order.
+With defer, the script is executed in order after the HTML has been parsed.
+If order of execution matters and the script relies on the DOM being fully parsed, you should use defer. 
+If the script
+can be executed independently and doesn't rely on the DOM being fully available, you can use async.
+
+If neither attribute is present, the script is downloaded and executed synchronously, blocking HTML parsing until it's
+done.
+
+Example combining both attributes (not recommended unless you have a specific use case):
+html
+Copy code
+<script async defer src="example.js"></script>
+In this case, the script will be downloaded asynchronously and executed in order when the HTML parsing is complete. -->
