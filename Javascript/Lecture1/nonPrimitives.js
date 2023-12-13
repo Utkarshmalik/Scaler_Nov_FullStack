@@ -56,11 +56,12 @@
 // console.log(cap[string]);
 
 
-// let cap = {
-//     name:"Steve",
-//     age: 34,
-//     isAvenger: true,    
-// }
+let cap = {
+    name:"Steve",
+    age: 34,
+    isAvenger: true,    
+}
+
 
 // for(let key in cap){
 //     console.log(key, " ", cap[key], " ", cap.key);

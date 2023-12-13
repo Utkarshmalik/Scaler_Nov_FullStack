@@ -93,19 +93,56 @@
 // }
 
 
-function real() {
-    console.log("I am real. Always run me");
-}
-function real() {
-    console.log("No I am real one ");
-}
-real();
-function real() {
-    console.log("You both are wasted");
-}
+// function real() {
+//     console.log("I am real. Always run me");
+// }
+// function real() {
+//     console.log("No I am real one ");
+// }
+// real();
+// function real() {
+//     console.log("You both are wasted");
+// }
 
-// What will be the output when the code is executed?
+// // What will be the output when the code is executed?
 
-// [ ] "No I am real one"
-// [] "You both are wasted"
-// [ ] Error
+// // [ ] "No I am real one"
+// // [] "You both are wasted"
+// // [ ] Error
+
+
+
+
+
+
+
+
+
+// var add = function(a,b){
+//     return a+b;
+// }
+
+// var result = add(1,5);
+
+// console.log(result);
+
+
+
+
+// console.log(add(5,10));
+
+// function add(a,b){
+//     return a+b;
+// }
+
+
+
+// var result = add(1,5);
+
+// console.log(result);
+
+
+// var add = function(a,b){
+//     return a+b;
+// }
+
