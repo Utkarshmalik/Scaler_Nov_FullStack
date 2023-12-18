@@ -136,6 +136,11 @@
 // };
 
 
+
+// The JSON.stringify() method is used to convert the  object into a JSON-formatted string.
+// JSON.parse() creates a deep copy of the  object. The deep cloned object is assigned to the deepClonedObj variable.
+
+
 // let husbandJSON = JSON.stringify(husband);
 // let wife = JSON.parse(husbandJSON);
 

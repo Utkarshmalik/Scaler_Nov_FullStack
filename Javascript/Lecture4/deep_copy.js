@@ -14,7 +14,29 @@ let person = {
 
 function clone(obj){
 
+    let newObj={};
 
+    for(let key in obj){
+
+        if(typeof obj[key]==='object'){
+
+            let innerCopiedObject  =  clone(obj[key]);
+
+            if(Array.isArray(obj[key])){
+
+                newObj[key] = Object.values(innerCopiedObject);
+
+            }else{
+                newObj[key] =  innerCopiedObject;
+            }
+
+        }else{
+           newObj[key] = obj[key];
+        }
+    }
+
+
+    return newObj;
 }
 
 
