@@ -62,26 +62,28 @@ const fs = require("fs");
 
 
 
-
-console.log("Before");
-
-
-fs.readFile("./f1.txt",f1cb);
-
-function f1cb(err,data){
-
-    let content1=data;
-
-    fs.readFile("./f2.txt",f2cb);
+// console.log("Before");
 
 
-    function f2cb(err,data){
+// fs.readFile("./f1.txt",f1cb);
 
-        let content2= data;
+// function f1cb(err,data){
 
-        console.log("" +content1 + " " + content2);
-    }
+//     let content1=data;
 
-}
+//     fs.readFile("./f2.txt",f2cb);
 
-console.log("After");
+
+//     function f2cb(err,data){
+
+//         let content2= data;
+
+//         console.log("" +content1 + " " + content2);
+//     }
+
+// }
+
+// console.log("After");
+
+
+
