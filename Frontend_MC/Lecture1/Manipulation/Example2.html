@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript appendChild() Demo</title>
+</head>
+
+<body>
+     <ul id="language"></ul>
+
+    <script>
+
+        const languageList  = document.querySelector("#language");
+
+        function createMenuItem(name) {
+                let li = document.createElement('li');
+                li.textContent = name;
+                return li;
+            }
+        
+        let languages = ['JS', 'TypeScript', 'Elm', 'Dart', 'Scala'];
+
+        languages.forEach((language)=>{
+
+            languageList.appendChild(createMenuItem(language));
+        })
+  
+    </script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript appendChild() Demo</title>
+</head>
+
+<body>
+    <ul id="language"></ul>
+
+    <script>
+
+        const languageList = document.querySelector("#language");
+
+        function createMenuItem(name) {
+            let li = document.createElement('li');
+            li.textContent = name;
+            return li;
+        }
+
+        let languages = ['JS', 'TypeScript', 'Elm', 'Dart', 'Scala'];
+
+        let fragment = new DocumentFragment();
+
+
+        languages.forEach((language) => {
+            fragment.appendChild(createMenuItem(language));
+        })
+
+        languageList.appendChild(fragment);
+
+
+    /**
+     * Advantages of using Fragments:
+     * 
+        Performance:
+
+        Manipulating a document fragment is generally faster than manipulating the actual DOM because changes to the fragment don't trigger reflows and repaints.
+
+        Reduced Impact on Layout:
+
+        When you append elements to a fragment and then append the fragment to the document, it causes only one layout update. This can be more efficient than appending elements individually, which might trigger layout updates for each addition.
+
+        Cleaner Code:
+
+        Fragments allow you to group elements logically without cluttering the HTML structure with unnecessary wrapper elements.
+
+        Reduced Memory Usage:
+
+        Since fragments are not part of the main DOM tree, they consume less memory, contributing to improved memory efficiency.
+     * 
+     * 
+     * 
+     * 
+     * */
+
+
+
+    </script>
+
+</body>
+
+
+</html>

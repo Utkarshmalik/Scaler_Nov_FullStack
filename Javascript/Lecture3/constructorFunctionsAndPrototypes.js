@@ -68,7 +68,7 @@ console.log(person2.__proto__ === Person.prototype);
 console.log(person3.__proto__ === Person.prototype);
 console.log(person1.__proto__.__proto__ === Object.prototype);
 console.log(person1.__proto__.__proto__.__proto__ === null);
-
+ 
 // console.log(person1.getFullName());
 // console.log(person2.getFullName());
 // console.log(person3.getFullName());
