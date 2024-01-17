@@ -1,0 +1,44 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid black;
+    gap:2rem;
+    padding:2rem;
+}
+
+.timerLabels{
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+}
+
+.timerInputs {
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+}
+
+
+.timerButtons {
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.timerButtons  button{
+    width: 20%;
+    background-color: black;
+    color: white;
+    padding: 5px;
+}
+
+
+
+.timerInputs input {
+
+    text-align: center;
+    font-size: 25px;
+    border:2px solid black;
+}

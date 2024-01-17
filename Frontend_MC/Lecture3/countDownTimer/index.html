@@ -1,0 +1,67 @@
+
+    <!--
+        
+        
+       Interviewer : Problem Statement : Build a Count Down Timer
+
+            Must Have 
+            pass time in hours,minutes and seconds 
+            play and pause 
+            timer 
+            validation : if the user enters any time grater than 60 , it should move to left 
+
+            Good to Have: 
+            * reset button 
+
+            
+    
+    -->
+
+<!-- create a DUMMY UI -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        
+        <h1>  Count Down Timer </h1>
+
+
+        <div class="timerLabels">
+            <h2> Hours </h2>
+            <h2> Minutes </h2>
+            <h2> Seconds </h2>
+        </div>
+
+
+        <div class="timerInputs">
+          <input type="Number" maxlength="2" placeholder="00" id="hr"  />
+        <input type="Number" maxlength="2" placeholder="00" id="minute" />
+        <input type="Number" maxlength="2" placeholder="00" id="second" />
+        </div>
+
+        <div class="timerButtons">
+            <button id="start"> Start </button>
+            <button id="pause"> Pause </button>
+            <button id="reset"> Reset </button>
+
+        </div>
+
+
+
+    </div>
+
+       
+
+    <script src="script.js"></script>
+
+</body>
+</html>
