@@ -16,37 +16,38 @@ startButton.addEventListener("click",()=>{
     console.log( minutes);
     console.log( seconds);
 
-    const [transformedSecs, transformedMins, transformedHours] = transformInputs(seconds,minutes,hrs);
+    // start the timer with those values (Total seconds we have to count)
 
-
-    //transform 
-
-
-    // start the timer with those values 
-
-    let countDownTime  = transformedSecs + transformedMins * 60 + transformedHours * 60 * 60;
+    let countDownTime  = seconds + minutes * 60 + hrs * 60 * 60;
 
     timer(countDownTime);
 
 })
 
-function timer(countDownTime){
+function timer(countDownTimer){
 
-    // setTimeout 
+    if(countDownTimer===0){
+        return;
+    }
 
-    //decrement the timer 
+    countDownTimer--;
+    updateUIWithTimerValues(countDownTimer);
 
-
-    //update the UI in evert 1 second 
+    setTimeout(()=>{
+        timer(countDownTimer);
+    },1000)
+    
 }
 
 
 
+function updateUIWithTimerValues(countDownTime){
 
-function transformInputs(secs,mins,hrs){
+     let hrs = Math.floor(countDownTime / 3600);
+     let mins= Math.floor( (countDownTime%3600) / 60);
+     let secs = Math.floor(countDownTime % 60);
 
-    //write logic for transformation here
-
-    return [secs, mins, hrs];
-
+     hrInput.value = hrs;
+     minuteInput.value = mins;
+     secondInput.value = secs;
 }
