@@ -1,0 +1,83 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unused Event Listener Example</title>
+</head>
+
+<body>
+
+    <button id="myButton">Click me</button>
+
+    <script>
+        function addEventListenerLeak() {
+            const button = document.getElementById('myButton');
+
+            // Adding an event listener to the button
+            button.addEventListener('click', function handleClick() {
+                console.log('Button clicked');
+                // Some code here
+            });
+        }
+
+
+        // Calling the function to set up the event listener
+        addEventListenerLeak();
+
+
+
+        // Assume some time passes, and the button is no longer needed
+        // However, the event listener is still attached and references the handleClick function
+
+        // Now, if the button element is removed from the DOM, the event listener still persists,
+        // creating a memory leak as it holds a reference to the handleClick function and the button.
+    </script>
+
+</body>
+
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unused Event Listener Example</title>
+</head>
+
+<body>
+
+    <button id="myButton">Click me</button>
+
+    <script>
+        // Solution: Remove event listener when no longer needed
+        function removeEventListener() {
+            const button = document.getElementById('myButton');
+
+            // Defining the click handler separately
+            function handleClick() {
+                console.log('Button clicked');
+                // Some code here
+            }
+
+            // Adding an event listener to the button
+            button.addEventListener('click', handleClick);
+
+            // Later, when the listener is no longer needed
+            // Remove the event listener to avoid memory leaks
+            button.removeEventListener('click', handleClick);
+        }
+
+        // Calling the function to set up the event listener
+        removeEventListener();
+    </script>
+
+</body>
+
+</html>
