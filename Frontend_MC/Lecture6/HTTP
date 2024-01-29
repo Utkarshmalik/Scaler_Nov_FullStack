@@ -1,0 +1,106 @@
+HTTP (Hypertext Transfer Protocol) operates over the TCP/IP suite and uses a simple, text-based protocol for
+communication between clients and servers. An HTTP packet, also referred to as an HTTP message, consists of two main
+parts: the request and the response. Let's break down each:
+
+
+
+
+
+HTTP Request Packet:
+An HTTP request packet is sent from a client (e.g., a web browser) to a server to request a specific resource. It
+consists of:
+
+Request Line:
+
+Contains the HTTP method, URL (Uniform Resource Locator), and HTTP version.
+Example: GET /index.html HTTP/1.1
+Headers:
+
+Additional information about the request.
+Examples: Host, User-Agent, Accept.
+Empty Line:
+
+Signifies the end of the headers.
+Body (Optional):
+
+Data sent to the server, often used in POST requests.
+
+Example: Form data or JSON payload.
+
+
+GET /index.html HTTP/1.1
+Host: www.example.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:97.0) Gecko/20100101 Firefox/97.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+
+
+
+HTTP (Hypertext Transfer Protocol) operates over the TCP/IP suite and uses a simple, text-based protocol for
+communication between clients and servers. An HTTP packet, also referred to as an HTTP message, consists of two main
+parts: the request and the response. Let's break down each:
+
+HTTP Request Packet:
+An HTTP request packet is sent from a client (e.g., a web browser) to a server to request a specific resource. It
+consists of:
+
+Request Line:
+
+Contains the HTTP method, URL (Uniform Resource Locator), and HTTP version.
+Example: GET /index.html HTTP/1.1
+Headers:
+
+Additional information about the request.
+Examples: Host, User-Agent, Accept.
+Empty Line:
+
+Signifies the end of the headers.
+Body (Optional):
+
+Data sent to the server, often used in POST requests.
+Example: Form data or JSON payload.
+Example HTTP Request Packet:
+
+plaintext
+Copy code
+GET /index.html HTTP/1.1
+Host: www.example.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:97.0) Gecko/20100101 Firefox/97.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+HTTP Response Packet:
+An HTTP response packet is sent from the server to the client in response to an HTTP request. It consists of:
+
+Status Line:
+
+Contains the HTTP version, a three-digit status code, and a reason phrase.
+Example: HTTP/1.1 200 OK
+Headers:
+
+Additional information about the response.
+Examples: Content-Type, Content-Length, Server.
+Empty Line:
+
+Signifies the end of the headers.
+Body (Optional):
+
+Data sent from the server to the client.
+
+Example: HTML, JSON, or binary data.
+
+
+Example HTTP Response Packet:
+
+
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=UTF-8
+Content-Length: 2548
+Server: Apache/2.4.38 (Unix) OpenSSL/1.1.1d
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Example Page</title>
+</head>
+<body>
+  <h1>Hello, World!</h1>
+</body>
+</html>
