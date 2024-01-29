@@ -1,0 +1,34 @@
+Both throttling and debouncing are techniques used to control the frequency of function execution, but they address slightly different use cases. Choosing between throttling and debouncing depends on the specific requirements of the problem you are trying to solve. Here's a general guideline to help you decide:
+
+Use Throttling When:
+
+Continuous Updates are Acceptable:
+
+Throttling ensures that a function is executed at a regular interval, allowing continuous updates.
+Useful when you want to maintain a consistent flow of information, like tracking mouse movements or handling scrolling events.
+
+User Input or Real-Time Interactions:
+
+Suitable for scenarios where real-time feedback or continuous interaction is desired.
+Examples include handling mouse movement, button clicks, or continuous sensor data.
+
+Fixed Rate of Execution:
+
+If there's a requirement for a function to run at a fixed rate, throttling is more appropriate.
+Useful when dealing with animations or updating UI components.
+
+Use Debouncing When:
+
+Input Delay is Acceptable:
+
+Debouncing introduces a delay before executing the function, ensuring that it is only called after a period of inactivity.
+Useful when you want to delay the execution until the user has stopped performing an action, like typing or resizing.
+
+Event Triggers Frequently:
+
+If an event triggers frequently, and you want to avoid rapid-fire executions, debouncing is suitable.
+Examples include search suggestions, form input validation, or autosave features.
+
+Optimizing Resource Usage:
+
+Debouncing can be useful when dealing with resource-intensive operations, helping to optimize performance by avoiding unnecessary function calls.
