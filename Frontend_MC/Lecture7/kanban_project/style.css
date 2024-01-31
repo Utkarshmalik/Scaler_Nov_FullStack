@@ -1,0 +1,73 @@
+
+:root{
+    --pink:lightpink;
+    --blue:lightblue;
+    --green:lightgreen;
+    --purple:purple;
+    --light:white;
+
+}
+
+
+.toolbox{
+
+    background-color: black;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    gap:5rem;
+}
+
+    
+
+.toolbox-priority{
+
+    display:flex;
+    width: 20rem;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 70%;
+    background-color: #393c3f;
+    margin-left: 5rem;
+}
+
+.action-btn{
+     width: 10rem;
+    height: 70%;
+    background-color: var(--light);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+.add-btn, .remove-btn{
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+
+
+
+.color { 
+    height:1.8rem;
+    width: 3.5rem;
+    cursor: pointer;    
+}
+
+
+.pink{
+    background-color:var(--pink);
+}
+
+.blue{
+    background-color: var(--blue);
+}
+
+.purple{
+    background-color: var(--purple);
+}
+
+.green{
+    background-color: var(--green);
+}

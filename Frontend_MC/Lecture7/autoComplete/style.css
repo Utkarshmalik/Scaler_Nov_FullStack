@@ -1,0 +1,50 @@
+
+.autoComplete{
+
+    text-align: center;
+    border:3px solid black;
+    width:50vw;
+    padding:30px;
+    margin: 40px auto;
+
+}
+
+
+.searchInput{
+
+    width: 70%;
+    height: 3rem;
+    border-radius: 0.5rem;
+}
+
+
+.suggestionBox{
+    border:2px solid black;
+    width: 70%;
+    margin: 2rem auto;
+    padding: 1rem;
+    display: none;
+    font-size: 20px;
+    max-height: 20rem;
+    overflow-y: scroll;
+}
+
+.suggestionBox li{
+    padding:5px;
+    border:0.25px solid black;
+    margin: 1px;
+}
+
+.head{
+    font-size: 50px;
+}
+
+
+.visible {
+    display: block;
+}
+
+
+.hidden {
+    display: none;
+}
