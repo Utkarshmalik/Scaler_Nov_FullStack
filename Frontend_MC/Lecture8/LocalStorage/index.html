@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+        <h2>Local storage Example</h2>
+        <ul>
+            <!-- <li>I am an list Item</li>
+                <li>I am an list Item</li>
+                <li>I am an list Item</li>
+                <li>I am an list Item</li> -->
+        </ul>
+        <button id="read">read</button>
+        <button id="remove">remove</button>
+        <button id="Add">Add</button>
+
+        <script>
+            const readbtn = document.querySelector("#read");
+            const removeBtn = document.querySelector("#remove");
+            const AddBtn = document.querySelector("#Add");
+            const AllLiItems  =document.querySelectorAll("li");
+            const ul = document.querySelector("ul");
+
+
+            readbtn.addEventListener("click",()=>{
+
+                const localData=[];
+
+                for(let i=0;i<AllLiItems.length;i++){
+                    const textInside = AllLiItems[i].innerText;
+                    localData.push(textInside);
+                }
+
+                console.log(localData);
+                localStorage.setItem("listItems",JSON.stringify(localData));
+            })
+
+            AddBtn.addEventListener("click",function(){
+
+                const listItemsData = localStorage.getItem("listItems");
+                const listItemsArr = JSON.parse(listItemsData);
+
+                for(let i=0;i<listItemsArr.length;i++){
+
+                    let textContent = listItemsArr[i];
+
+                    const li = document.createElement("li");
+                    li.textContent  = textContent;
+                    ul.appendChild(li);
+                }
+
+            })
+
+            removeBtn.addEventListener("click",()=>{
+                localStorage.removeItem("listItems");
+            })
+
+
+        </script>
+    
+</body>
+</html>

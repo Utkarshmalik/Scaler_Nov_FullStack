@@ -1,0 +1,39 @@
+<!-- dragend Event:
+The dragend event is triggered when the drag operation is completed (either dropped or canceled). It allows you to
+perform cleanup or additional actions after the dragging is finished. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Example</title>
+    <style>
+        .draggable {
+            width: 100px;
+            height: 50px;
+            background-color: lightblue;
+            margin: 10px;
+            cursor: grab;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="draggable" draggable="true">Drag me</div>
+
+    <script>
+        const draggableElement = document.querySelector('.draggable');
+
+        // Dragend event
+        draggableElement.addEventListener('dragend', () => {
+            console.log('Drag operation ended.');
+            // Additional cleanup or actions after dragging
+        });
+    </script>
+
+</body>
+
+</html>

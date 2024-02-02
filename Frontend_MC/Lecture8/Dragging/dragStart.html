@@ -1,0 +1,40 @@
+<!-- dragstart Event:
+The dragstart event is triggered when a user starts dragging an element. It allows you to specify the data that will be
+dragged and set a visual representation of the dragged data (e.g., a ghost image). -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Example</title>
+    <style>
+        .draggable {
+            width: 100px;
+            height: 50px;
+            background-color: lightblue;
+            margin: 10px;
+            cursor: grab;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="draggable" draggable="true">Drag me</div>
+
+    <script>
+        const draggableElement = document.querySelector('.draggable');
+
+        // Dragstart event
+        draggableElement.addEventListener('dragstart', (event) => {
+            console.log(event);
+            event.dataTransfer.setData('text/plain', 'Hello, Dragging!');
+            event.dataTransfer.setDragImage(event.target, 50, 25);
+        });
+    </script>
+
+</body>
+
+</html>

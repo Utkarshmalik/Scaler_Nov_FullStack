@@ -1,0 +1,64 @@
+<!-- dragover Event:
+The dragover event is triggered continuously as an element is being dragged over a valid drop target. It allows you to
+control whether the drop is allowed and provides visual feedback to the user. -->
+
+
+
+
+<!-- 
+A drop target, in the context of drag and drop functionality refers to an element on a web page
+where a user can drop a dragged item. It is the designated area or element that can accept the dropped data or object. -->
+
+
+<!-- Drag Source: The element that the user initiates the drag operation on. This is the element that the user clicks and
+drags. -->
+
+<!-- Drop Target: The element or area on which the dragged item can be released or dropped. When the user hovers over this
+element during a drag operation, it typically provides visual feedback indicating that it is a valid drop target. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Example</title>
+    <style>
+        .draggable {
+            width: 100px;
+            height: 50px;
+            background-color: lightblue;
+            margin: 10px;
+            cursor: grab;
+        }
+
+        .dropzone {
+            width: 200px;
+            height: 100px;
+            border: 2px dashed gray;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="draggable" draggable="true">Drag me</div>
+    <div class="dropzone">Drop here</div>
+
+    <script>
+        const draggableElement = document.querySelector('.draggable');
+        const dropzoneElement = document.querySelector('.dropzone');
+
+        // Dragover event
+        dropzoneElement.addEventListener('dragover', (event) => {
+            console.log(event);
+            event.preventDefault(); // Prevent default to allow drop
+            // Additional styling or logic for dragover
+        });
+    </script>
+
+</body>
+
+</html>

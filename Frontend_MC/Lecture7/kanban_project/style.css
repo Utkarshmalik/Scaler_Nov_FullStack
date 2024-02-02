@@ -5,6 +5,7 @@
     --green:lightgreen;
     --purple:purple;
     --light:white;
+    --red:red;
 
 }
 
@@ -70,6 +71,10 @@
 
 .green{
     background-color: var(--green);
+}
+
+.red{
+    color: var(--red);
 }
 
 

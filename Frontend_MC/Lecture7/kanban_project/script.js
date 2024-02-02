@@ -4,8 +4,35 @@ const priorityColorContainer = document.querySelector(".priority_color_cont");
 const priorityColorArray = document.querySelectorAll(".priorirty_color");
 const textArea= document.querySelector(".textarea_cont");
 const toolBoxPriorityContainer = document.querySelector(".toolbox-priority");
-
 const pendingContainer = document.querySelector(".pending_cont");
+const finishedContainer = document.querySelector(".finished_cont");
+const deleteBtn = document.querySelector(".remove-btn");
+const colors = ["pink","blue","purple","green"];
+
+
+let allTickets =  localStorage.getItem("localTickets") || [] ;
+let isFromLocalStorage= false;
+
+if(typeof allTickets === "string"){
+
+    allTickets = JSON.parse(allTickets);
+    populateUI();
+}
+
+
+function populateUI(){
+
+    isFromLocalStorage = true;
+
+    allTickets.forEach((ticket)=>{
+
+        const {content,color,id,isPending} =ticket;
+        createNewTicket(content,color,id,isPending);
+    })
+
+    isFromLocalStorage = false;
+}
+
 
 
 addBtn.addEventListener("click",()=>{
@@ -86,17 +113,18 @@ model.addEventListener("keypress",(e)=>{
 
 
 
-    createNewTicket(content, cColor, id);
+    createNewTicket(content, cColor, id,true);
 
 
 })
 
 
 
-function createNewTicket(content,color,id){
+function createNewTicket(content,color,id,isPending){
 
     const ticketContainer = document.createElement("div");
     ticketContainer.setAttribute("class","ticket_cont");
+    ticketContainer.setAttribute("draggable","true");
 
 
     ticketContainer.innerHTML= `
@@ -108,10 +136,79 @@ function createNewTicket(content,color,id){
     </div>
     `
 
+    if(isPending){
     pendingContainer.appendChild(ticketContainer);
+    }else{
+        finishedContainer.appendChild(ticketContainer);
+    }
+
+
+    if(!isFromLocalStorage){
+        let ticketObj = {
+            id,
+            content,
+            color,
+            isPending
+        }
+
+        allTickets.push(ticketObj);    
+        updateLocalStorage();
+    }
+
+
+    //color click
+    const ticketColorElem  = ticketContainer.querySelector(".ticket_color");
+    ticketColorElem.addEventListener("click",toggleColor);
+
+
+    //lock click
+    const lockBtn = ticketContainer.querySelector(".lock_unlock");
+    const ticketArea = ticketContainer.querySelector(".ticket_area");
+    lockBtn.addEventListener("click",(e)=>handleLockAndUnLock(e,ticketArea));
+
+
+    //container click 
+    ticketContainer.addEventListener("click",handleContainerClick);
+    
 
 }
 
+function handleLockAndUnLock(e,ticket_area){
+
+    console.log("handle lock and unlock");
+
+    let isLocked = e.target.classList.contains("fa-lock");
+    console.log(isLocked);
+
+    if(isLocked){
+        //unlock
+        e.target.classList.remove("fa-lock");
+        e.target.classList.add("fa-unlock");
+        ticket_area.setAttribute("contenteditable",true);
+
+
+    }else{
+        //lock 
+         e.target.classList.remove("fa-unlock");
+         e.target.classList.add("fa-lock");
+        ticket_area.setAttribute("contenteditable",false);
+
+    }
+
+}
+
+
+function toggleColor(e){
+
+    const cColor = e.target.classList[1];
+    let idx=  colors.indexOf(cColor);
+
+    let nextIndx= (idx+1)%colors.length;
+
+    e.target.classList.remove(cColor);
+    e.target.classList.add(colors[nextIndx]);
+
+}
 
 priorityColorContainer.addEventListener("click",(e)=>{
 
@@ -128,8 +225,27 @@ priorityColorContainer.addEventListener("click",(e)=>{
 })
 
 
+deleteBtn.addEventListener("click",(e)=>{
+    e.target.classList.toggle("red");
+})
 
-//drag and drop 
-// storage 
-//delete button
-// edit ticket
+
+function handleContainerClick(e){
+
+    const isDeleteActivated   = deleteBtn.children[0].classList.contains("red");
+
+    if(!isDeleteActivated){
+        return;
+    }
+
+
+
+   e.currentTarget.remove();
+
+}
+
+
+
+function updateLocalStorage(){
+    localStorage.setItem("localTickets",JSON.stringify(allTickets));
+}
