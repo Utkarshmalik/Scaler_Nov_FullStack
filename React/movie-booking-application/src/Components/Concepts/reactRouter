@@ -1,0 +1,24 @@
+In React Router, the Link component is used to create navigation links that allow users to navigate between different views or pages without triggering a full page reload.
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+function Navigation() {
+return (
+<div>
+<nav>
+<ul>
+<li>
+<Link to="/">Home</Link>
+</li>
+<li>
+<Link to="/about">About</Link>
+</li>
+<li>
+<Link to="/contact">Contact</Link>
+</li>
+</ul>
+</nav>
+</div>
+);
+}
