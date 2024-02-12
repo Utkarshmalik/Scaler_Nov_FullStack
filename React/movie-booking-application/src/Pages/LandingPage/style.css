@@ -8,3 +8,25 @@
     padding: 2px;
     cursor: pointer;
 }
+
+.searchBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchBox form{
+    width: 50%;
+    text-align: center;
+    margin: 10px;
+}
+
+
+.searchBox input {
+
+    width: 50%;
+    margin: 0 auto;
+    height: 2.5rem;
+    border-radius: 2px;
+}
+

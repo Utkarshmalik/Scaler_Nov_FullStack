@@ -68,7 +68,7 @@ function MovieDetails(){
                     <h5> Cast </h5>
 
                     {
-                        movieData.casts.map(name=>{
+                         movieData.cast &&  movieData.cast.map(name=>{
                             return <li className="list-group-item"> {name} </li>
                         })
                     }
