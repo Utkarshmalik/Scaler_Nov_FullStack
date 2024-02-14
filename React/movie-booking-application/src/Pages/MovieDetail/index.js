@@ -1,19 +1,24 @@
-import { useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import "./style.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import NavbarComp from "../../Components/Navbar";
 import Loader from "../../Components/common/Spinner";
 import { getMovieDetails } from "../../api/movie";
 import ReactPlayer from "react-player";
+import { ThemeContext } from "../../App";
 
 
 function MovieDetails(){
+
+        const themeContextValue = useContext(ThemeContext);
+        const isLightTheme = themeContextValue.theme==="light";
 
     const params = useParams();
     const movieId = params.movieId;
 
     const [isLoading, setIsLoading] = useState(true);
     const [movieData, setMovieData] =useState(null);
+
 
 
     const fetchMovieDetails= async ()=>{
@@ -30,14 +35,14 @@ function MovieDetails(){
 
 
 
-    return <div>
+    return <div className={(isLightTheme)?"bg-light text-dark":"bg-dark text-light"}>
         <NavbarComp/>
 
         {
 
             (isLoading) ? <Loader/> :  <div>
 
-                 <div className="movieDetailBox  bg-black" >
+                 <div className={(isLightTheme)?"movieDetailBox bg-light":"movieDetailBox bg-dark"} >
 
                     <ReactPlayer url={movieData.trailerUrl} controls={true} width="80%" height="80%"/>
 

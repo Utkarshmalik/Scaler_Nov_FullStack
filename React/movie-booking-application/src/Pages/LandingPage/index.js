@@ -1,15 +1,20 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./style.css";
 import NavbarComp from "../../Components/Navbar";
 import Loader from "../../Components/common/Spinner";
 import Movie from "../../Components/Movie";
 import { getAllMovie } from "../../api/movie";
+import { ThemeContext } from "../../App";
 
 
 
 let allMovieData=[];
 
 function LandingPage(){
+
+     const themeContextValue = useContext(ThemeContext);
+
+     console.log(themeContextValue);
     
 
     console.log("inside landing page");

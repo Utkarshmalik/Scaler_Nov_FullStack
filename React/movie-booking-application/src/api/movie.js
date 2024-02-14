@@ -10,7 +10,16 @@ export const getAllMovie = async ()=>{
 
 
 export const getMovieDetails = async (id)=>{
-    const moviePromise=  await fetch(`${BASE_URL}/mba/api/v1/movies/${id}`);
+
+    const token = localStorage.getItem("token");
+
+
+    const moviePromise=  await fetch(`${BASE_URL}/mba/api/v1/movies/${id}`,{
+        headers:{
+            "x-access-token":token
+        }
+    });
+
     const movieData = await moviePromise.json();
     return movieData;
 }

@@ -1,11 +1,38 @@
+import { useContext } from 'react';
 import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/esm/Button';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useNavigate } from 'react-router-dom';
+import { ThemeContext } from '../../App';
 
 function NavbarComp() {
+
+  const naigate = useNavigate();
+
+         const themeContextValue = useContext(ThemeContext);
+        const isLightTheme = themeContextValue.theme==="light";
+        const {changeTheme} = themeContextValue;
+
+
+  const onLogout=()=>{
+    localStorage.clear();
+    naigate("/login");
+    
+  }
+
+  const onThemeToggle=()=>{
+    if(isLightTheme){
+      changeTheme("dark");
+    }else{
+      changeTheme("light");
+    }
+  }
+
+
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar className={(isLightTheme)?"bg-dark text-light":"bg-light text-dark"} expand="lg" >
       <Container>
         <Navbar.Brand href="#home">Movie Booking Application</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -26,6 +53,16 @@ function NavbarComp() {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
+
+        <Button onClick={onLogout} className='bg-danger m-2'>
+          Logout
+        </Button>
+
+         <Button onClick={onThemeToggle} className='bg-danger'>
+          Toggle Theme
+        </Button>
+
+
       </Container>
     </Navbar>
   );
