@@ -8,7 +8,7 @@
 
 }
 
-.productSearch input{
+.productSearch input, .productSearch select{
     padding:10px;
     margin: 20px;
     font:2rem;
