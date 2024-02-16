@@ -20,7 +20,7 @@ function Product(props){
 
         <div className="productImg">
 
-            <img src={image} />
+            <img src={image} alt={title}/>
 
         </div>
 
