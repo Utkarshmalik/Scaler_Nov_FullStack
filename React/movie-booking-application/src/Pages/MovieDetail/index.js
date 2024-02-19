@@ -1,4 +1,4 @@
-import {  useParams } from "react-router-dom";
+import {  Link, useParams } from "react-router-dom";
 import "./style.css";
 import { useContext, useEffect, useState } from "react";
 import NavbarComp from "../../Components/Navbar";
@@ -6,6 +6,7 @@ import Loader from "../../Components/common/Spinner";
 import { getMovieDetails } from "../../api/movie";
 import ReactPlayer from "react-player";
 import { ThemeContext } from "../../App";
+import Button from "react-bootstrap/esm/Button";
 
 
 function MovieDetails(){
@@ -78,7 +79,17 @@ function MovieDetails(){
                         })
                     }
 
+
+
                     </div>
+
+
+                 
+                       <Button variant="danger" className="text-light m-5 p-2">
+                        <Link to={`/buyTickets/${movieId}`}>                     
+                        Book Tickets
+                         </Link>
+                      </Button>
 
                    
 

@@ -8,6 +8,7 @@ import MovieDetails from './Pages/MovieDetail';
 import Bookings from './Pages/Bookings';
 import AuthHoc from './hoc/authHoc';
 import { createContext, useState } from 'react';
+import MovieTheares from './Pages/MovieTheatres';
 
 export const ThemeContext = createContext();
 
@@ -25,9 +26,10 @@ function App() {
         <Route path="/signup" element={ <Auth/>} />
         <Route path="/" element={ <LandingPage/>} />
         <Route path="/movie/:movieId" element={  <AuthHoc> <MovieDetails/></AuthHoc> } />
-        <Route path="/bookings" element= { <AuthHoc> <Bookings/></AuthHoc>
-    
-      } />
+        <Route path="/bookings" element= { <AuthHoc> <Bookings/></AuthHoc>} />
+        <Route path="/buyTickets/:movieId" element= { <AuthHoc> <MovieTheares/></AuthHoc>} />
+        <Route path="/buyTickets/:movieId/:theatreId" element= { <AuthHoc> <Bookings/></AuthHoc>} />
+
         <Route path="*" element={ <PageNotFound/>} />
 
 
