@@ -7,6 +7,7 @@ import NavbarComp from "../../Components/Navbar";
 import Loader from "../../Components/common/Spinner";
 import Cinema from "../../Components/Cinema/Cinema";
 import { Button } from "react-bootstrap";
+import Payments from "../../Components/Payments/Payments";
 
 
 function Bookings(){
@@ -17,6 +18,7 @@ function Bookings(){
     const [theatreDetails, setTheatreDetails]= useState(null);
     const [isLoading, setIsLoading] =  useState(true);
     const [selectedSeats, setSelectedSeats] = useState([]);
+    const [showPaymentModel , setShowPaymentModel] = useState(false);
 
     const init = async ()=>{
 
@@ -43,6 +45,17 @@ function Bookings(){
         init();
     },[])
 
+    const openModel=()=>{
+      setShowPaymentModel(true);
+    }
+
+    const onProceedToPayment=()=>{
+      openModel();
+    }
+
+    const closeModel = ()=>{
+      setShowPaymentModel(false)
+    }
 
 
     console.log(movieId, theatreId);
@@ -66,11 +79,28 @@ function Bookings(){
 
         <Cinema movieDetails={movieDetails} selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats}/>
 
-        
-        <Button disabled={selectedSeats.length===0} variant="success" size="lg" >
+      
+
+        <p className="info m-3">
+
+          You have selected <span className="count">  {selectedSeats.length}  </span> seats
+
+        </p>
+
+
+
+
+        <p className="info m-3">
+
+          Your total price of  booking is <span className="count">  {selectedSeats.length * 1000}   </span> seats
+
+        </p>
+    
+    
+      
+        <Button onClick={onProceedToPayment} disabled={selectedSeats.length===0} variant="success" size="lg" >
         Proceed to Payment
         </Button>
-    
 
         </div>
 
@@ -78,6 +108,11 @@ function Bookings(){
         }
 
 
+          {
+            showPaymentModel && 
+          <Payments selectedSeats={selectedSeats} movieDetails={movieDetails} theatreDetails={theatreDetails} closeModel={closeModel} show={showPaymentModel} />
+
+          }
     </div>
 }
 
