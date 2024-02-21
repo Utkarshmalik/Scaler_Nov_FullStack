@@ -1,0 +1,79 @@
+Managing state in large web apps, or even smaller ones with less complexity, can be quite difficult.
+
+Redux:
+
+A single centralized place to contain the global state in your application, and specific patterns to follow when updating that state to make the code predictable.
+
+1. Store
+   Our Redux app's state and reducers are stored in a object called store.
+
+2. Reducer
+
+The reducer is responsible for returning a new state, and it does so depending on the action that is passed to it.
+
+The reducer is a function that takes the current state and an action object as inputs and outputs the new state
+
+3. Action
+
+The action instructs the reducer on what to do with the state, such as changing it to a value we pass into the reducer from the action
+
+<!--
+ The reducer is responsible for actually changing the state of the application, while the action is in charge of specifying how it should change -->
+
+Actions in detail :
+
+In Redux, actions are plain JavaScript objects that represent an intention to change the state of the application
+
+Actions must have a type property that indicates the type of action being performed.
+They can also have additional properties to carry any necessary data.
+
+ <!-- addTodoAction is an action with a type of 'ADD_TODO' and a payload property containing the data for the new todo item. -->
+
+<!--
+
+const addTodoAction = {
+  type: 'ADD_TODO',
+  payload: {
+    id: 1,
+    text: 'Buy groceries',
+    completed: false
+  }
+
+};
+
+
+-->
+
+<!-- Action creators  -->
+
+Actions are typically created using action creator functions, which are functions that return action objects.
+
+Action creators make it easier to create actions with dynamic data.
+
+<!--
+ function addTodo(id, text) {
+  return {
+    type: 'ADD_TODO',
+    payload: {
+      id,
+      text,
+      completed: false
+    }
+  };
+}
+
+// Usage
+const newTodoAction = addTodo(2, 'Walk the dog'); -->
+
+<!--
+
+Once an action is created, it is dispatched to the Redux store using the dispatch function.
+The store then forwards the action to the reducer, which is a pure function responsible for updating the state based on the action type. -->
+
+Summary
+
+In Redux, actions are sent to reducers through the dispatch function. When you call dispatch with an action, Redux sends that action to every reducer in your application.
+
+Reducers are functions that specify how the application's state changes in response to actions. Each reducer typically handles a specific slice of the state tree. Reducers are pure functions, meaning they don't mutate the state directly; instead, they return a new state object based on the old state and the action.
+
+https://media.geeksforgeeks.org/wp-content/uploads/20210706235837/reactreduxx.png
