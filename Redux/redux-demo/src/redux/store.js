@@ -1,9 +1,10 @@
-import {legacy_createStore} from "redux";
+import {applyMiddleware, createStore} from "redux";
 import allReducers from "./reducers";
+import loggingMiddleware from "./middlewares/loggingMiddleware";
+import {thunk} from 'redux-thunk';
 
+const store = createStore(allReducers, applyMiddleware(loggingMiddleware, thunk));
 
-const store = legacy_createStore(allReducers);
-store.getState();
 
 export default store;
 

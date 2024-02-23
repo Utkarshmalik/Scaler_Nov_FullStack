@@ -77,3 +77,72 @@ In Redux, actions are sent to reducers through the dispatch function. When you c
 Reducers are functions that specify how the application's state changes in response to actions. Each reducer typically handles a specific slice of the state tree. Reducers are pure functions, meaning they don't mutate the state directly; instead, they return a new state object based on the old state and the action.
 
 https://media.geeksforgeeks.org/wp-content/uploads/20210706235837/reactreduxx.png
+
+Redux Middlewares
+
+Redux middleware is a powerful and flexible mechanism that allows you to extend the behavior of the Redux store's dispatch function. Middleware sits between the action being dispatched and the moment it reaches the reducer, providing a way to intercept, modify, or augment the actions and handle asynchronous operations.
+
+const middleware = store => next => action => {
+// Middleware logic here
+next(action); // Pass the action to the next middleware or the reducer
+};
+
+Diagrams
+
+https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow
+
+https://camo.githubusercontent.com/79eb282f3949943c160f1851da08e069d082d618faf22fc4248f49dc88f36766/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6d656469612d702e736c69642e65732f75706c6f6164732f3336343831322f696d616765732f323438343739302f415243482d5265647578322d657874656e6465642d7265616c2d6465636c657261746976652e676966
+
+https://github.com/reduxjs/redux/issues/653
+
+//Order of Middlewares
+
+const middleware1 = store => next => action => {
+// Middleware 1 logic
+next(action);
+};
+
+const middleware2 = store => next => action => {
+// Middleware 2 logic
+next(action);
+};
+
+const middleware3 = store => next => action => {
+// Middleware 3 logic
+next(action);
+};
+
+// Apply middleware to the store
+const store = createStore(
+rootReducer,
+applyMiddleware(middleware1, middleware2, middleware3)
+);
+
+Top-Level Only: Hooks must be used at the top level of your functional components or custom hooks. They should not be called conditionally or inside loops.
+
+// Valid
+function MyComponent() {
+const [count, setCount] = useState(0);
+// ...
+
+return (
+
+<div>
+{/_ ... _/}
+</div>
+);
+}
+
+// Invalid - Hooks must be at the top level
+function InvalidComponent() {
+if (condition) {
+const [count, setCount] = useState(0); // Error!
+}
+
+return (
+
+<div>
+{/_ ... _/}
+</div>
+);
+}

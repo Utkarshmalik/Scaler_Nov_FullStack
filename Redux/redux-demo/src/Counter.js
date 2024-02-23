@@ -1,8 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
 import { incrementCounter } from "./redux/actionCreators/incrementCounter";
+import { useEffect } from "react";
 
 
 function Counter(){
+
+        const dispatch = useDispatch();
 
 
     // useSelector: This is a React-Redux hook that allows functional components to extract and subscribe to slices of the Redux store state. 
@@ -19,15 +22,13 @@ function Counter(){
 
 
     const countState = useSelector((state)=>state.count);
-    const dispatch = useDispatch();
 
     function onIncrement(e){
-        e.preventDefault();
 
 
-        const incrementAction = incrementCounter();
-
-        dispatch(incrementAction);
+        const incrementActionFn = incrementCounter();
+        
+        dispatch(incrementActionFn);
 
     }
 
