@@ -1,0 +1,29 @@
+Unit tests in JavaScript are a type of testing where individual units or components of a program are tested in
+isolation to ensure that they function correctly.
+
+The goal is to validate that each unit of code (typically functions or methods) performs as expected
+
+// math.js
+
+function add(a, b) {
+return a + b;
+}
+
+module.exports = add;
+
+// math.test.js
+
+const add = require('./math');
+
+test('adds 1 + 2 to equal 3', () => {
+expect(add(1, 2)).toBe(3);
+});
+
+
+
+//Command for installation 
+
+// npm install --save-dev jest @testing-library/react @testing-library/jest-dom
+
+
+
