@@ -137,3 +137,184 @@ class MyClassComponent extends Component {
 }
 
 ```
+
+Custom Hooks
+
+```
+import { useState } from 'react';
+
+// Custom hook for managing a counter
+const useCounter = (initialValue = 0) => {
+  const [count, setCount] = useState(initialValue);
+
+  const increment = () => {
+    setCount(count + 1);
+  };
+
+  const decrement = () => {
+    setCount(count - 1);
+  };
+
+  return { count, increment, decrement };
+};
+
+// Example usage of the custom hook
+const CounterComponent = () => {
+  const { count, increment, decrement } = useCounter(0);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+    </div>
+  );
+};
+
+export default CounterComponent;
+
+```
+
+```
+import React from 'react';
+import useCounter from './useCounter'; // Assuming the custom hook is in a separate file
+
+const AnotherComponent = () => {
+  const { count, increment, decrement } = useCounter(5); // Initial value is 5
+
+  return (
+    <div>
+      <p>Count in AnotherComponent: {count}</p>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+    </div>
+  );
+};
+
+export default AnotherComponent;
+
+```
+
+const App = () => {
+return (
+<ErrorBoundary>
+<ExampleComponent />
+</ErrorBoundary>
+);
+};
+
+export default App;
+
+const ExampleComponent = () => {
+// Simulate an error within this component
+// Uncomment the next line to trigger an error
+// throw new Error('Example error within ExampleComponent');
+
+return (
+<div>
+<h1>This is an example component</h1>
+</div>
+);
+};
+
+const ErrorBoundary = ({ children }) => {
+const [hasError, setHasError] = useState(false);
+
+useEffect(() => {
+const handleError = (error, errorInfo) => {
+setHasError(true);
+// You can log the error to an error reporting service
+console.error('Error caught by ErrorBoundary:', error, errorInfo);
+};
+
+    // Assign the error handler to the global error event
+    window.addEventListener('error', handleError);
+
+    return () => {
+      // Remove the error handler when the component unmounts
+      window.removeEventListener('error', handleError);
+    };
+
+}, []);
+
+if (hasError) {
+// You can render a custom fallback UI
+return <div>Something went wrong. Please try again later.</div>;
+}
+
+// Render the children components normally
+return <>{children}</>;
+};
+
+const App = () => {
+return (
+<ErrorBoundary>
+<DataFetcher />
+</ErrorBoundary>
+);
+};
+
+const fetchDataFromApi = async () => {
+const response = await fetch('https://api.example.com/data');
+if (!response.ok) {
+throw new Error('Failed to fetch data from the API');
+}
+const data = await response.json();
+return data;
+};
+
+const DataFetcher = () => {
+const [data, setData] = useState(null);
+
+useEffect(() => {
+const fetchData = async () => {
+try {
+const result = await fetchDataFromApi();
+setData(result);
+} catch (error) {
+// Any errors thrown during data fetching will be caught here
+throw error;
+}
+};
+
+    fetchData();
+
+}, []);
+
+// Render the data if available
+return (
+<div>
+<h1>Data from API</h1>
+{data && <pre>{JSON.stringify(data, null, 2)}</pre>}
+</div>
+);
+};
+
+const ErrorBoundary = ({ children }) => {
+const [hasError, setHasError] = useState(false);
+
+useEffect(() => {
+const handleError = (error) => {
+setHasError(true);
+// You can log the error to an error reporting service
+console.error('Error caught by ErrorBoundary:', error);
+};
+
+    // Assign the error handler to the global error event
+    window.addEventListener('error', handleError);
+
+    return () => {
+      // Remove the error handler when the component unmounts
+      window.removeEventListener('error', handleError);
+    };
+
+}, []);
+
+if (hasError) {
+// You can render a custom fallback UI
+return <div>Failed to fetch data. Please try again later.</div>;
+}
+
+// Render the children components normally
+return <>{children}</>;
+};
